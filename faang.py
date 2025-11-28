@@ -29,6 +29,14 @@ df['Close'].plot(ax=ax)
 
 # Current date and time.
 now =  dt.datetime.now()
+ax.set_title(f'Plot date: {now.strftime("%Y%m%d-%H%M%S")}')
+
+# Add axis labels.
+ax.set_xlabel("Date")
+ax.set_ylabel("Close Price")
+
+# Add legend.
+ax.legend(loc='upper right')
 
 # File name.
 filename= "./plots/" + now.strftime("%Y%m%d-%H%M%S") + '.png'
