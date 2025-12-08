@@ -34,14 +34,14 @@ jobs:
 
       - name: Run faang.py
         run: |
-          python computer-infrastructure-assessment/faang.py
+          python faang.py
 
       - name: Commit changes
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
           git add -A
-          git diff --quiet --cached || git commit -m "Automated update from stocks.py"
+          git diff --quiet --cached || git commit -m "Automated update from faang.py"
 
       - name: Push changes
         run: |
