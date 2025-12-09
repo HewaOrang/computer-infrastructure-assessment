@@ -29,6 +29,12 @@ jobs:
           pip install yfinance matplotlib
 
       - name: Run FAANG script
+      - name: Ensure output directories exist
+        run: |
+          mkdir -p data
+          mkdir -p plots
+          echo "Repo tree:"
+          ls -R
         run: python faang.py
 
       - name: Commit changes

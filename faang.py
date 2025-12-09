@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+import os
+
 # Dates and times.
 import datetime as dt
 
@@ -8,6 +10,10 @@ import yfinance as yf
 
 # Plotting.
 import matplotlib.pyplot as plt
+
+# --- ensure directories exist ---
+os.makedirs("data", exist_ok=True)
+os.makedirs("plots", exist_ok=True)
 
 # Get data.
 df = yf.download(['META', 'AAPL', 'AMZN', 'NFLX', 'GOOG',], period='5d', interval='1h')
@@ -39,7 +45,7 @@ ax.set_ylabel("Close Price")
 ax.legend(loc='upper right')
 
 # File name.
-filename= "./plots/" + now.strftime("%Y%m%d-%H%M%S") + '.png'
+filename = "./plots/" + now.strftime("%Y%m%d-%H%M%S") + '.png'
 
 # Save figure.
 fig.savefig(filename, dpi=300)
