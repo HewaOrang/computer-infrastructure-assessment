@@ -16,7 +16,7 @@ df = yf.download(['META', 'AAPL', 'AMZN', 'NFLX', 'GOOG',], period='5d', interva
 now =  dt.datetime.now()
 
 # File name.
-filename= "./data/" + now.strftime("%Y%m%d-%H%M%S") + '.csv'
+filename= "/data/" + now.strftime("%Y%m%d-%H%M%S") + '.csv'
 
 # Save data as csv.
 df.to_csv(filename)
@@ -39,7 +39,7 @@ ax.set_ylabel("Close Price")
 ax.legend(loc='upper right')
 
 # File name.
-filename= "./plots/" + now.strftime("%Y%m%d-%H%M%S") + '.png'
+filename= "/plots/" + now.strftime("%Y%m%d-%H%M%S") + '.png'
 
 # Save figure.
 fig.savefig(filename, dpi=300)
