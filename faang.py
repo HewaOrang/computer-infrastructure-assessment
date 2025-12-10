@@ -11,10 +11,6 @@ import yfinance as yf
 # Plotting.
 import matplotlib.pyplot as plt
 
-# --- ensure directories exist ---
-os.makedirs("data", exist_ok=True)
-os.makedirs("plots", exist_ok=True)
-
 # Get data.
 df = yf.download(['META', 'AAPL', 'AMZN', 'NFLX', 'GOOG',], period='5d', interval='1h')
 
