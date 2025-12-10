@@ -1,48 +1,53 @@
-# Adapted from Grok:
-# https://grok.com/share/c2hhcmQtNA_299055a9-79bd-4951-8914-ab0e4050bcfc
 
-name: Run FAANG Script
+
+name: Run faang.py and push changes
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:   # allows manual runs
   schedule:
-    - cron: "30 10 * * 6"   # every Saturday at 10:30 AM (change/remove if you want)
+    # From: https://crontab.guru/#0_10_*_*_6
+    - cron: "30 10 * * 6"   
+
+permissions:
+  contents: write   # required to push changes
 
 jobs:
   run-faang:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}  # default token with write permissions
+          fetch-depth: 0                      # ensure full history for committing
 
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: "3.x"
 
-      - name: Install Requirements
+      - name: Install dependencies (optional)
         run: |
-          pip install yfinance matplotlib
+          pip install -r requirements.txt || true
 
-      - name: Run FAANG script
       - name: Ensure output directories exist
         run: |
           mkdir -p data
           mkdir -p plots
           echo "Repo tree:"
-          ls -R
-        run: python faang.py
+          ls -R    
+
+      - name: Run faang.py
+        run: |
+          python faang.py
 
       - name: Commit changes
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add .
-          git commit -m "Auto update FAANG data and plots" || echo "No changes to commit"
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add -A
+          git diff --quiet --cached || git commit -m "Automated update from faang.py"
 
       - name: Push changes
         run: |
