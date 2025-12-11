@@ -1,4 +1,5 @@
 # computer-infrastructure-assessment README
+by: Hewa Orang
 
 Welcome to this repository!  
 This project downloads, processes, visualizes, and automates data for the five FAANG stocks — **META, AAPL, AMZN, NFLX, GOOG**.  
@@ -61,13 +62,14 @@ This ensures the project maintains up-to-date data and plots without manual inte
 
 ## **Project Structure**
 
-├── faang.py
-├── README.md
+├── .github/
+│ └── workflows/
+│ └── faang.yml
 ├── data/
 ├── plots/
-└── .github/
-└── workflows/
-└── faang.yml
+├── faang.py
+├── README.md
+└── requirements.txt
 
 ---
 
@@ -82,3 +84,12 @@ This repository:
 5. **Automates** the entire workflow weekly  
 
 Follow these steps to understand, run, and extend the project. Contributions and improvements are always welcome!
+
+# References
+
+- Lecture notes, videos, and tutorials from the course material.
+- [Real Python](https://realpython.com/)
+- [W3Schools](https://www.w3schools.com/)
+- [pandas DataFrame Documentation](https://pandas.pydata.org/docs/reference/frame.html)
+- [matplotlib Documentation](https://matplotlib.org/stable/api/matplotlib_configuration_api.html)
+- [yfinance Repository](https://github.com/ranaroussi/yfinance?tab=readme-ov-file)
