@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 
+# Uses the system’s default Python interpreter (Unix/Linux shebang)
+# https://docs.python.org/3/using/unix.html#shebang-lines
+
+# Operating system interfaces.
 import os
 
 # Dates and times.
