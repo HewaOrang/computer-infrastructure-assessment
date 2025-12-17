@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 # Uses the system’s default Python interpreter (Unix/Linux shebang)
-# https://docs.python.org/3/using/unix.html#shebang-lines
+# https://docs.python.org/3/using/unix.html#shebang-lines & https://realpython.com/python-shebang/
 
 # Operating system interfaces.
 import os

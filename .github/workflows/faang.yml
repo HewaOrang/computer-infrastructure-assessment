@@ -1,20 +1,20 @@
 # The workflow below is done using chatGPT to run faang.py on a schedule
 # https://chatgpt.com/s/t_693985fd5e6081919446f403deea1729
 
-name: Run faang.py and push changes
+name: Run faang.py and push changes #
 
 on:
   workflow_dispatch:   # allows manual runs
   schedule:
     # From: https://crontab.guru/#0_10_*_*_6
-    - cron: "30 10 * * 6"   
+    - cron: "30 10 * * 6"   # At 10:30 on Saturday (UTC time)
 
 permissions:
   contents: write   # required to push changes
 
-jobs:
+jobs: 
   run-faang:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest 
 
     steps:
       - name: Checkout repository
@@ -32,7 +32,7 @@ jobs:
         run: |
           pip install -r requirements.txt || true
 
-      - name: Ensure output directories exist
+      - name: Ensure output directories exist 
         run: |
           mkdir -p data
           mkdir -p plots
